@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sajjad Real Estate | Property Acquisition & Deal Finding</title>
+
+  <meta
+    name="description"
+    content="Sajjad Real Estate connects buyers, builders, developers, investors, sellers and property owners around qualified real-estate opportunities."
+  >
+
+  <meta
+    name="keywords"
+    content="real estate acquisition, property buyers, property sellers, land buyers, land sellers, real estate deals, developers, investors, builders"
+  >
+
+  <meta name="author" content="Sajjad Real Estate">
+
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --white: #ffffff;
+      --dark: #07111f;
+      --dark-2: #0d1929;
+      --green: #35d39a;
+      --green-dark: #15966a;
+      --text: #172033;
+      --muted: #657286;
+      --border: #e2e8f0;
+      --shadow: 0 18px 50px rgba(10, 25, 45, 0.08);
+      --radius: 18px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(7, 17, 31, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: auto;
+
+      padding: 17px 25px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 850;
+      letter-spacing: -0.3px;
+      white-space: nowrap;
+      color: white;
+    }
+
+    .logo span {
+      color: var(--green);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #dce5ef;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    nav a:hover {
+      color: var(--green);
+    }
+
+    .nav-button {
+      background: var(--green);
+      color: #06150f !important;
+      padding: 10px 16px;
+      border-radius: 8px;
+    }
+
+    .nav-button:hover {
+      background: #5be4af;
+      transform: translateY(-1px);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 85% 15%,
+          rgba(53,211,154,0.22),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 15% 90%,
+          rgba(28,104,130,0.22),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #07111f 0%,
+          #0a1727 50%,
+          #0b241f 100%
+        );
+
+      color: white;
+      padding: 120px 25px 110px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+
+      right: -180px;
+      top: -180px;
+
+      border-radius: 50%;
+      border: 1px solid rgba(53,211,154,0.16);
+      box-shadow:
+        0 0 0 60px rgba(53,211,154,0.025),
+        0 0 0 120px rgba(53,211,154,0.02);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      max-width: 1080px;
+      margin: auto;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      background: rgba(53,211,154,0.10);
+      color: #72e9b9;
+
+      border: 1px solid rgba(53,211,154,0.25);
+
+      padding: 8px 15px;
+      border-radius: 50px;
+
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+
+      margin-bottom: 25px;
+    }
+
+    .badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+
+      background: var(--green);
+      border-radius: 50%;
+
+      box-shadow: 0 0 12px var(--green);
+    }
+
+    h1 {
+      font-size: clamp(44px, 7vw, 78px);
+      line-height: 1.02;
+
+      letter-spacing: -3px;
+
+      max-width: 900px;
+      margin-bottom: 27px;
+    }
+
+    .hero-highlight {
+      color: var(--green);
+    }
+
+    .hero p {
+      max-width: 790px;
+
+      font-size: 19px;
+      color: #cbd5e1;
+
+      margin-bottom: 37px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--green);
+      color: #06150f;
+
+      padding: 14px 23px;
+
+      border-radius: 9px;
+
+      text-decoration: none;
+      font-weight: 800;
+
+      transition: 0.25s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(53,211,154,0.18);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: white;
+
+      border: 1px solid #536174;
+    }
+
+    .button.secondary:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    /* =========================
+       TRUST BAR
+    ========================= */
+
+    .trust-bar {
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .trust-container {
+      max-width: 1100px;
+      margin: auto;
+
+      padding: 22px 25px;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .trust-item {
+      text-align: center;
+    }
+
+    .trust-item strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 3px;
+    }
+
+    .trust-item span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
+
+    section {
+      padding: 90px 25px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 52px;
+    }
+
+    .section-label {
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+
+      margin-bottom: 9px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(31px, 5vw, 44px);
+      line-height: 1.15;
+      letter-spacing: -1.2px;
+
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    /* =========================
+       CARDS
+    ========================= */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+
+      padding: 32px;
+
+      border-radius: var(--radius);
+
+      border: 1px solid var(--border);
+
+      box-shadow: var(--shadow);
+
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 60px rgba(10,25,45,0.11);
+    }
+
+    .number {
+      width: 38px;
+      height: 38px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: rgba(53,211,154,0.11);
+      color: var(--green-dark);
+
+      border-radius: 10px;
+
+      font-size: 13px;
+      font-weight: 900;
+
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      line-height: 1.3;
+      margin-bottom: 11px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       DARK SECTION
+    ========================= */
+
+    .dark-section {
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(53,211,154,0.09),
+          transparent 35%
+        ),
+        var(--dark);
+
+      color: white;
+    }
+
+    .dark-section .section-title p {
+      color: #aebaca;
+    }
+
+    .dark-section .section-label {
+      color: #65e3ae;
+    }
+
+    .dark-card {
+      background: #101b2c;
+      border-color: #223149;
+      box-shadow: none;
+    }
+
+    .dark-card:hover {
+      background: #132136;
+    }
+
+    .dark-card h3 {
+      color: white;
+    }
+
+    .dark-card p {
+      color: #aebaca;
+    }
+
+    /* =========================
+       PROCESS
+    ========================= */
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .step {
+      position: relative;
+
+      text-align: center;
+
+      padding: 28px 17px;
+
+      background: white;
+
+      border: 1px solid var(--border);
+      border-radius: 14px;
+
+      box-shadow: 0 8px 25px rgba(15,25,40,0.04);
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin: 0 auto 14px;
+
+      border-radius: 50%;
+
+      background: var(--dark);
+      color: var(--green);
+
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .step small {
+      color: #687386;
+      font-size: 12px;
+    }
+
+    /* =========================
+       WHEEL JACK
+    ========================= */
+
+    .ai-section {
+      background: #f0f7f4;
+    }
+
+    .ai-box {
+      position: relative;
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(53,211,154,0.18),
+          transparent 35%
+        ),
+        linear-gradient(135deg, #10243b, #0c3c32);
+
+      color: white;
+
+      border-radius: 24px;
+
+      padding: 58px;
+    }
+
+    .ai-box::after {
+      content: "AI";
+
+      position: absolute;
+      right: 40px;
+      bottom: -55px;
+
+      font-size: 190px;
+      font-weight: 900;
+
+      color: rgba(255,255,255,0.035);
+
+      pointer-events: none;
+    }
+
+    .ai-label {
+      display: inline-block;
+
+      color: #70e8b8;
+
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+
+      margin-bottom: 12px;
+    }
+
+    .ai-box h2 {
+      position: relative;
+      z-index: 2;
+
+      font-size: clamp(32px, 5vw, 46px);
+      letter-spacing: -1px;
+
+      margin-bottom: 18px;
+    }
+
+    .ai-box p {
+      position: relative;
+      z-index: 2;
+
+      color: #d2dde6;
+      max-width: 820px;
+    }
+
+    .ai-features {
+      position: relative;
+      z-index: 2;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 12px;
+
+      margin-top: 30px;
+    }
+
+    .ai-feature {
+      padding: 15px;
+
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.045);
+
+      border-radius: 10px;
+
+      font-size: 13px;
+      color: #dbe5ed;
+    }
+
+    /* =========================
+       PRINCIPLES
+    ========================= */
+
+    .principle-icon {
+      width: 44px;
+      height: 44px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 12px;
+
+      background: #edf8f3;
+
+      color: var(--green-dark);
+
+      font-weight: 900;
+
+      margin-bottom: 18px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      background:
+        linear-gradient(
+          135deg,
+          #eaf5f1,
+          #f7fbf9
+        );
+
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: clamp(32px, 5vw, 46px);
+      letter-spacing: -1px;
+
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      max-width: 720px;
+
+      margin: 0 auto 30px;
+
+      color: #5e6c7c;
+    }
+
+    .contact-options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-note {
+      margin-top: 18px;
+
+      font-size: 12px;
+      color: #778394;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #050b14;
+
+      color: #9ca7b7;
+
+      text-align: center;
+
+      padding: 35px 20px;
+
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+      font-size: 16px;
+    }
+
+    footer .footer-brand {
+      margin-bottom: 8px;
+    }
+
+    footer .disclaimer {
+      max-width: 750px;
+      margin: 18px auto 0;
+
+      color: #768294;
+
+      font-size: 11px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      nav {
+        display: none;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ai-features {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 90px 20px 85px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .ai-box {
+        padding: 38px 25px;
+      }
+    }
+
+    @media (max-width: 520px) {
+
+      section {
+        padding: 70px 18px;
+      }
+
+      .nav {
+        padding: 15px 18px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .trust-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .contact-options {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+  <div class="nav">
+
+    <div class="logo">
+      Sajjad <span>Real Estate</span>
+    </div>
+
+    <nav>
+      <a href="#buyers">Buyers</a>
+      <a href="#sellers">Sellers</a>
+      <a href="#process">Process</a>
+      <a href="#wheel-jack">Wheel Jack</a>
+      <a href="#contact" class="nav-button">Get Started</a>
+    </nav>
+
+  </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="badge">
+      REAL ESTATE ACQUISITION & DEAL FINDING
+    </div>
+
+    <h1>
+      Finding the Right
+      <span class="hero-highlight">Property Opportunities</span>
+      for Real People.
+    </h1>
+
+    <p>
+      Sajjad Real Estate helps buyers, builders, developers,
+      investors, sellers and property owners connect around
+      potentially workable real-estate opportunities.
+      We focus on understanding the requirement, qualifying
+      information and identifying opportunities that deserve
+      further review.
+    </p>
+
+    <div class="buttons">
+
+      <a href="#buyers" class="button">
+        I'm a Buyer
+      </a>
+
+      <a href="#sellers" class="button secondary">
+        I'm a Seller
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     TRUST BAR
+========================= -->
+
+<div class="trust-bar">
+
+  <div class="trust-container">
+
+    <div class="trust-item">
+      <strong>Buyer Focused</strong>
+      <span>Understand the actual requirement</span>
+    </div>
+
+    <div class="trust-item">
+      <strong>Opportunity Driven</strong>
+      <span>Search for potentially suitable properties</span>
+    </div>
+
+    <div class="trust-item">
+      <strong>Information First</strong>
+      <span>Separate facts from assumptions</span>
+    </div>
+
+    <div class="trust-item">
+      <strong>Human Oversight</strong>
+      <span>Important decisions remain human-led</span>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     BUYERS
+========================= -->
+
+<section id="buyers">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <div class="section-label">
+        For Buyers
+      </div>
+
+      <h2>
+        Tell Us What You Need.
+        We'll Help Identify Opportunities.
+      </h2>
+
+      <p>
+        Before looking for property, we first understand what
+        you're actually trying to accomplish.
+      </p>
+
+    </div>
+
+
+    <div class="grid">
+
+
+      <div class="card">
+
+        <div class="number">
+          01
+        </div>
+
+        <h3>
+          Define Your Requirements
+        </h3>
+
+        <p>
+          We can collect your preferred location, property type,
+          land size, intended use, budget, zoning considerations,
+          timeline and other important requirements.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="number">
+          02
+        </div>
+
+        <h3>
+          Search for Potential Fits
+        </h3>
+
+        <p>
+          Potential opportunities may be identified through
+          authorized property-data, public-record and discovery
+          sources available to the acquisition workflow.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="number">
+          03
+        </div>
+
+        <h3>
+          Evaluate the Opportunity
+        </h3>
+
+        <p>
+          Properties can be reviewed for location, size,
+          pricing information, potential economics, property fit,
+          risks and information that still requires verification.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     SELLERS
+========================= -->
+
+<section id="sellers" class="dark-section">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <div class="section-label">
+        For Sellers
+      </div>
+
+      <h2>
+        Have Property to Sell?
+        Start With the Information.
+      </h2>
+
+      <p>
+        Tell us about your property and your objectives so we can
+        determine whether it may fit an active or future buyer requirement.
+      </p>
+
+    </div>
+
+
+    <div class="grid">
+
+
+      <div class="card dark-card">
+
+        <div class="number">
+          01
+        </div>
+
+        <h3>
+          Tell Us About Your Property
+        </h3>
+
+        <p>
+          Share the property location, type, approximate size,
+          asking price and any other relevant information.
+        </p>
+
+      </div>
+
+
+      <div class="card dark-card">
+
+        <div class="number">
+          02
+        </div>
+
+        <h3>
+          Explain Your Objectives
+        </h3>
+
+        <p>
+          We can discuss your preferred price, desired timeline,
+          circumstances and whether you are open to discussing
+          potential offers.
+        </p>
+
+      </div>
+
+
+      <div class="card dark-card">
+
+        <div class="number">
+          03
+        </div>
+
+        <h3>
+          Match Against Demand
+        </h3>
+
+        <p>
+          A property may be evaluated against available buyer
+          requirements and relevant deal information before
+          deciding on the appropriate next step.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PROCESS
+========================= -->
+
+<section id="process">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <div class="section-label">
+        Our Process
+      </div>
+
+      <h2>
+        From Requirement to Potential Opportunity
+      </h2>
+
+      <p>
+        The goal is not to force every property into a transaction.
+        The goal is to identify opportunities that genuinely deserve review.
+      </p>
+
+    </div>
+
+
+    <div class="process">
+
+
+      <div class="step">
+
+        <div class="step-number">
+          1
+        </div>
+
+        <strong>
+          Understand
+        </strong>
+
+        <small>
+          Identify the buyer, seller or property objective.
+        </small>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">
+          2
+        </div>
+
+        <strong>
+          Qualify
+        </strong>
+
+        <small>
+          Collect the information needed to understand the opportunity.
+        </small>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">
+          3
+        </div>
+
+        <strong>
+          Verify
+        </strong>
+
+        <small>
+          Separate verified information from estimates and unknowns.
+        </small>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">
+          4
+        </div>
+
+        <strong>
+          Evaluate
+        </strong>
+
+        <small>
+          Review property fit, economics and potential risks.
+        </small>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">
+          5
+        </div>
+
+        <strong>
+          Coordinate
+        </strong>
+
+        <small>
+          Move legitimate opportunities toward the appropriate next step.
+        </small>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     WHEEL JACK
+========================= -->
+
+<section id="wheel-jack" class="ai-section">
+
+  <div class="container">
+
+    <div class="ai-box">
+
+      <div class="ai-label">
+        AI ACQUISITION ASSISTANT
+      </div>
+
+      <h2>
+        Meet Wheel Jack
+      </h2>
+
+      <p>
+        Wheel Jack is an AI acquisition assistant working with
+        Sajjad's real-estate business. It can handle initial
+        conversations, collect buyer and seller requirements,
+        organize property information, help qualify opportunities
+        and coordinate information between the people involved.
+      </p>
+
+      <br>
+
+      <p>
+        Wheel Jack is designed to assist the acquisition process —
+        not replace human judgment. When authorization, negotiation,
+        verification or an important decision is required, the
+        matter can be brought to Sajjad or the appropriate human professional.
+      </p>
+
+
+      <div class="ai-features">
+
+        <div class="ai-feature">
+          ✓ Buyer requirement collection
+        </div>
+
+        <div class="ai-feature">
+          ✓ Seller property information
+        </div>
+
+        <div class="ai-feature">
+          ✓ Opportunity qualification
+        </div>
+
+        <div class="ai-feature">
+          ✓ Property information organization
+        </div>
+
+        <div class="ai-feature">
+          ✓ Buyer-property matching support
+        </div>
+
+        <div class="ai-feature">
+          ✓ Human escalation when required
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PRINCIPLES
+========================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <div class="section-label">
+        Our Principles
+      </div>
+
+      <h2>
+        Built Around Better Information.
+      </h2>
+
+      <p>
+        Real-estate decisions can involve significant money.
+        That's why potential opportunities should be treated carefully.
+      </p>
+
+    </div>
+
+
+    <div class="grid">
+
+
+      <div class="card">
+
+        <div class="principle-icon">
+          ✓
+        </div>
+
+        <h3>
+          Verified Information
+        </h3>
+
+        <p>
+          Important property, pricing, ownership and transaction
+          information should be independently verified before
+          being treated as final.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="principle-icon">
+          $
+        </div>
+
+        <h3>
+          No Artificial Promises
+        </h3>
+
+        <p>
+          A potential opportunity is not presented as guaranteed
+          profit, guaranteed approval, guaranteed financing or
+          guaranteed transaction.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="principle-icon">
+          H
+        </div>
+
+        <h3>
+          Human Decision-Making
+        </h3>
+
+        <p>
+          Important negotiations, authorizations and decisions
+          remain subject to appropriate human review and judgment.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact" class="contact">
+
+  <div class="container">
+
+    <div class="section-label">
+      GET STARTED
+    </div>
+
+    <h2>
+      Have a Property or Requirement?
+    </h2>
+
+    <p>
+      Whether you're looking to buy, build, develop, invest or sell,
+      start by telling us what you're looking for or what you have.
+      We'll help determine the appropriate next step.
+    </p>
+
+
+    <div class="contact-options">
+
+      <!--
+        IMPORTANT:
+        Replace 923001234567 with your actual WhatsApp number.
+        Use international format without + or spaces.
+      -->
+
+      <a
+        href="https://wa.me/923001234567?text=Hello%20Sajjad%20Real%20Estate%2C%20I%20would%20like%20to%20discuss%20a%20real%20estate%20opportunity."
+        class="button"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Contact on WhatsApp
+      </a>
+
+      <a
+        href="#buyers"
+        class="button secondary"
+        style="color:#172033;border-color:#aeb8c5;"
+      >
+        I'm Looking to Buy
+      </a>
+
+      <a
+        href="#sellers"
+        class="button secondary"
+        style="color:#172033;border-color:#aeb8c5;"
+      >
+        I Have Property to Sell
+      </a>
+
+    </div>
+
+    <div class="contact-note">
+      Initial information is for opportunity screening and discussion.
+      Important property and transaction information should be independently verified.
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <div class="footer-brand">
+    <strong>
+      Sajjad Real Estate
+    </strong>
+  </div>
+
+  <p>
+    Property Acquisition & Deal Finding
+  </p>
+
+  <p class="disclaimer">
+    Wheel Jack is an AI acquisition assistant working with
+    Sajjad's real-estate business. AI-generated information
+    is intended to assist with initial information gathering
+    and opportunity qualification. It should not be treated
+    as legal, financial, tax, appraisal or investment advice.
+    Important information should be independently verified
+    before making real-estate decisions.
+  </p>
+
+  <br>
+
+  <p>
+    © 2026 Sajjad Real Estate. All rights reserved.
+  </p>
+
+</footer>
+
+
+</body>
+</html>
