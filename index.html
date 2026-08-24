@@ -4,46 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Sajjad Real Estate | Property Opportunities, Buyers & Sellers</title>
+  <title>Sajjad Real Estate | Property Opportunities & Real Estate Solutions</title>
 
   <meta
     name="description"
-    content="Sajjad Real Estate helps buyers, sellers, builders, developers and investors explore real-estate opportunities with human guidance and AI assistance."
+    content="Sajjad Real Estate connects buyers, sellers, builders, developers and investors with real-estate opportunities through organized information, human communication and AI assistance."
   >
 
   <meta name="author" content="Sajjad Real Estate">
+  <meta name="theme-color" content="#071521">
 
   <style>
-
     /* =========================================================
        DESIGN SYSTEM
     ========================================================= */
 
     :root {
       --navy: #071521;
-      --navy-2: #0c1e2d;
-      --navy-3: #112a3d;
+      --navy-2: #0b1c2a;
+      --navy-3: #10283a;
 
       --gold: #c8a96b;
-      --gold-light: #e4c98e;
-      --gold-dark: #9d7d42;
+      --gold-light: #ead39b;
+      --gold-dark: #98783f;
 
-      --cream: #f7f4ed;
+      --cream: #f6f3ec;
+      --cream-2: #fbfaf7;
+
       --white: #ffffff;
 
       --text: #17212b;
-      --muted: #66717c;
-      --light-border: #e5e1d8;
+      --muted: #69747e;
 
-      --success: #3f8f6b;
+      --border: #e5e0d6;
+
+      --green: #1f8f63;
 
       --shadow:
-        0 20px 60px rgba(7, 21, 33, 0.10);
+        0 18px 55px rgba(7, 21, 33, 0.10);
 
       --shadow-heavy:
         0 30px 90px rgba(7, 21, 33, 0.18);
 
       --radius: 20px;
+
+      --max-width: 1180px;
     }
 
 
@@ -59,6 +64,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
 
     body {
@@ -72,10 +78,16 @@
         Arial,
         sans-serif;
 
-      background: var(--white);
       color: var(--text);
+      background: var(--white);
+
       line-height: 1.65;
+
       overflow-x: hidden;
+    }
+
+    body.menu-open {
+      overflow: hidden;
     }
 
     img {
@@ -87,6 +99,10 @@
       color: inherit;
     }
 
+    button {
+      font: inherit;
+    }
+
 
     /* =========================================================
        ANIMATIONS
@@ -95,7 +111,7 @@
     @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(28px);
+        transform: translateY(24px);
       }
 
       to {
@@ -117,16 +133,27 @@
     @keyframes pulse {
       0%,
       100% {
-        box-shadow: 0 0 0 0 rgba(200,169,107,0.35);
+        box-shadow: 0 0 0 0 rgba(200, 169, 107, 0.35);
       }
 
       50% {
-        box-shadow: 0 0 0 9px rgba(200,169,107,0);
+        box-shadow: 0 0 0 9px rgba(200, 169, 107, 0);
+      }
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-7px);
       }
     }
 
     .reveal {
-      animation: fadeUp 0.9s ease both;
+      animation: fadeUp 0.8s ease both;
     }
 
 
@@ -139,36 +166,40 @@
       top: 0;
       z-index: 1000;
 
-      background: rgba(7,21,33,0.94);
+      background: rgba(7, 21, 33, 0.95);
 
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
 
-      border-bottom:
-        1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .nav {
+      width: 100%;
       max-width: 1240px;
+
       margin: auto;
 
-      padding: 17px 28px;
+      padding: 15px 28px;
 
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 30px;
+      justify-content: space-between;
+
+      gap: 25px;
     }
 
     .logo {
       color: white;
 
+      text-decoration: none;
+
       font-size: 21px;
       font-weight: 850;
 
-      letter-spacing: -0.5px;
+      letter-spacing: -0.6px;
 
-      text-decoration: none;
+      white-space: nowrap;
     }
 
     .logo span {
@@ -178,11 +209,11 @@
     nav {
       display: flex;
       align-items: center;
-      gap: 25px;
+      gap: 24px;
     }
 
     nav a {
-      color: #dce4ea;
+      color: #dce5eb;
 
       text-decoration: none;
 
@@ -198,18 +229,40 @@
 
     .nav-call {
       background: var(--gold);
+
       color: var(--navy) !important;
 
       padding: 10px 16px;
 
       border-radius: 8px;
 
-      font-weight: 800;
+      font-weight: 850;
     }
 
     .nav-call:hover {
       background: var(--gold-light);
       transform: translateY(-1px);
+    }
+
+    .menu-button {
+      display: none;
+
+      width: 42px;
+      height: 42px;
+
+      border: 1px solid rgba(255,255,255,0.15);
+
+      background: rgba(255,255,255,0.05);
+
+      color: white;
+
+      border-radius: 10px;
+
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
     }
 
 
@@ -219,6 +272,7 @@
 
     .hero {
       position: relative;
+
       min-height: 760px;
 
       display: flex;
@@ -231,14 +285,15 @@
 
     .hero-image {
       position: absolute;
+
       inset: 0;
 
       background-image:
         linear-gradient(
           90deg,
-          rgba(4,14,23,0.94) 0%,
-          rgba(4,14,23,0.78) 45%,
-          rgba(4,14,23,0.38) 100%
+          rgba(4, 14, 23, 0.96) 0%,
+          rgba(4, 14, 23, 0.82) 42%,
+          rgba(4, 14, 23, 0.43) 100%
         ),
         url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2200&q=90");
 
@@ -262,28 +317,28 @@
 
     .eyebrow {
       display: inline-flex;
+
       align-items: center;
       gap: 9px;
 
       padding: 8px 14px;
 
-      border:
-        1px solid rgba(228,201,142,0.35);
+      border: 1px solid rgba(228, 201, 142, 0.35);
 
       border-radius: 50px;
 
-      background:
-        rgba(200,169,107,0.10);
+      background: rgba(200, 169, 107, 0.10);
 
       color: var(--gold-light);
 
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 850;
 
-      letter-spacing: 1.5px;
+      letter-spacing: 1.4px;
+
       text-transform: uppercase;
 
-      margin-bottom: 25px;
+      margin-bottom: 24px;
     }
 
     .eyebrow::before {
@@ -291,6 +346,8 @@
 
       width: 7px;
       height: 7px;
+
+      flex-shrink: 0;
 
       border-radius: 50%;
 
@@ -300,36 +357,41 @@
     }
 
     .hero h1 {
-      max-width: 900px;
+      max-width: 880px;
 
-      font-size:
-        clamp(44px, 7vw, 82px);
+      font-size: clamp(45px, 7vw, 82px);
 
-      line-height: 1.02;
+      line-height: 1.01;
 
-      letter-spacing: -3.5px;
+      letter-spacing: -4px;
 
-      margin-bottom: 27px;
+      margin-bottom: 28px;
     }
 
     .hero h1 span {
+      display: block;
+
       color: var(--gold-light);
     }
 
     .hero-description {
-      max-width: 720px;
+      max-width: 700px;
 
       color: #d5dde3;
 
       font-size: 18px;
+
+      line-height: 1.75;
 
       margin-bottom: 35px;
     }
 
     .hero-buttons {
       display: flex;
+
       flex-wrap: wrap;
-      gap: 13px;
+
+      gap: 12px;
     }
 
 
@@ -351,12 +413,17 @@
 
       text-decoration: none;
 
+      font-size: 14px;
+
       font-weight: 800;
+
+      cursor: pointer;
 
       transition:
         transform 0.25s ease,
         box-shadow 0.25s ease,
-        background 0.25s ease;
+        background 0.25s ease,
+        border-color 0.25s ease;
     }
 
     .button:hover {
@@ -365,31 +432,46 @@
 
     .button-gold {
       background: var(--gold);
+
       color: var(--navy);
 
       box-shadow:
-        0 12px 30px rgba(200,169,107,0.20);
+        0 12px 30px rgba(200, 169, 107, 0.20);
     }
 
     .button-gold:hover {
       background: var(--gold-light);
+
       box-shadow:
-        0 18px 40px rgba(200,169,107,0.30);
+        0 18px 40px rgba(200, 169, 107, 0.30);
     }
 
     .button-outline {
       color: white;
 
-      border:
-        1px solid rgba(255,255,255,0.35);
+      border: 1px solid rgba(255,255,255,0.35);
 
-      background:
-        rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.05);
     }
 
     .button-outline:hover {
-      border-color: var(--gold-light);
       color: var(--gold-light);
+
+      border-color: var(--gold-light);
+
+      background: rgba(255,255,255,0.08);
+    }
+
+    .button-dark {
+      background: var(--navy);
+
+      color: white;
+    }
+
+    .button-green {
+      background: var(--green);
+
+      color: white;
     }
 
 
@@ -400,33 +482,36 @@
     .hero-info {
       position: absolute;
 
-      right: 7%;
-      bottom: 50px;
+      right: 6%;
+      bottom: 48px;
 
       z-index: 3;
 
-      width: 285px;
+      width: 290px;
 
       padding: 22px;
 
-      border:
-        1px solid rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.13);
 
-      background:
-        rgba(7,21,33,0.70);
+      background: rgba(7,21,33,0.70);
 
       backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
 
       border-radius: 16px;
+
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.15);
     }
 
     .hero-info-title {
       color: var(--gold-light);
 
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 850;
 
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
+
       text-transform: uppercase;
 
       margin-bottom: 8px;
@@ -436,6 +521,8 @@
       color: #d5dde3;
 
       font-size: 13px;
+
+      line-height: 1.65;
     }
 
 
@@ -446,20 +533,20 @@
     .trust {
       background: var(--cream);
 
-      border-bottom:
-        1px solid var(--light-border);
+      border-bottom: 1px solid var(--border);
     }
 
     .trust-grid {
+      width: 100%;
       max-width: 1180px;
+
       margin: auto;
 
       padding: 22px 25px;
 
       display: grid;
 
-      grid-template-columns:
-        repeat(4, 1fr);
+      grid-template-columns: repeat(4, 1fr);
 
       gap: 20px;
     }
@@ -494,15 +581,16 @@
     }
 
     .container {
-      max-width: 1160px;
+      width: 100%;
+      max-width: var(--max-width);
+
       margin: auto;
     }
 
     .section-heading {
       max-width: 760px;
 
-      margin:
-        0 auto 55px;
+      margin: 0 auto 55px;
 
       text-align: center;
     }
@@ -510,10 +598,10 @@
     .section-label {
       color: var(--gold-dark);
 
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 900;
 
-      letter-spacing: 1.6px;
+      letter-spacing: 1.7px;
 
       text-transform: uppercase;
 
@@ -523,12 +611,11 @@
     .section-heading h2 {
       color: var(--navy);
 
-      font-size:
-        clamp(32px, 5vw, 50px);
+      font-size: clamp(32px, 5vw, 50px);
 
       line-height: 1.1;
 
-      letter-spacing: -1.8px;
+      letter-spacing: -2px;
 
       margin-bottom: 17px;
     }
@@ -537,18 +624,19 @@
       color: var(--muted);
 
       font-size: 15px;
+
+      line-height: 1.75;
     }
 
 
     /* =========================================================
-       PROPERTY IMAGE CARDS
+       PROPERTY CARDS
     ========================================================= */
 
     .property-grid {
       display: grid;
 
-      grid-template-columns:
-        repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
 
       gap: 22px;
     }
@@ -558,8 +646,7 @@
 
       background: white;
 
-      border:
-        1px solid var(--light-border);
+      border: 1px solid var(--border);
 
       border-radius: var(--radius);
 
@@ -567,11 +654,14 @@
 
       transition:
         transform 0.35s ease,
-        box-shadow 0.35s ease;
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
     }
 
     .property-card:hover {
       transform: translateY(-7px);
+
+      border-color: rgba(200,169,107,0.55);
 
       box-shadow: var(--shadow-heavy);
     }
@@ -582,8 +672,7 @@
       background-size: cover;
       background-position: center;
 
-      transition:
-        transform 0.6s ease;
+      transition: transform 0.6s ease;
     }
 
     .property-card:hover .property-image {
@@ -635,6 +724,8 @@
 
       font-size: 20px;
 
+      line-height: 1.35;
+
       margin-bottom: 8px;
     }
 
@@ -642,11 +733,13 @@
       color: var(--muted);
 
       font-size: 13px;
+
+      line-height: 1.7;
     }
 
 
     /* =========================================================
-       BUYER / SELLER
+       BUYER / SELLER DARK SECTION
     ========================================================= */
 
     .dark-section {
@@ -676,8 +769,7 @@
     .dark-grid {
       display: grid;
 
-      grid-template-columns:
-        repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
 
       gap: 25px;
     }
@@ -685,13 +777,11 @@
     .dark-card {
       padding: 38px;
 
-      border:
-        1px solid rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.09);
 
       border-radius: 20px;
 
-      background:
-        rgba(255,255,255,0.035);
+      background: rgba(255,255,255,0.035);
 
       transition: 0.3s ease;
     }
@@ -699,11 +789,9 @@
     .dark-card:hover {
       transform: translateY(-5px);
 
-      border-color:
-        rgba(228,201,142,0.35);
+      border-color: rgba(228,201,142,0.35);
 
-      background:
-        rgba(255,255,255,0.055);
+      background: rgba(255,255,255,0.055);
     }
 
     .dark-card-number {
@@ -717,8 +805,7 @@
 
       border-radius: 12px;
 
-      background:
-        rgba(200,169,107,0.12);
+      background: rgba(200,169,107,0.12);
 
       color: var(--gold-light);
 
@@ -751,7 +838,7 @@
 
       font-size: 13px;
 
-      padding: 7px 0;
+      padding: 8px 0;
 
       border-bottom:
         1px solid rgba(255,255,255,0.06);
@@ -772,11 +859,14 @@
        PROCESS
     ========================================================= */
 
+    .process-section {
+      background: var(--cream-2);
+    }
+
     .process {
       display: grid;
 
-      grid-template-columns:
-        repeat(5, 1fr);
+      grid-template-columns: repeat(5, 1fr);
 
       gap: 14px;
     }
@@ -786,8 +876,7 @@
 
       background: white;
 
-      border:
-        1px solid var(--light-border);
+      border: 1px solid var(--border);
 
       border-radius: 15px;
 
@@ -839,6 +928,8 @@
       color: var(--muted);
 
       font-size: 11px;
+
+      line-height: 1.6;
     }
 
 
@@ -883,14 +974,17 @@
 
       font-weight: 900;
 
-      color:
-        rgba(255,255,255,0.025);
+      line-height: 1;
+
+      color: rgba(255,255,255,0.025);
+
+      pointer-events: none;
     }
 
     .wheel-label {
       color: var(--gold-light);
 
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 900;
 
       letter-spacing: 1.5px;
@@ -902,10 +996,11 @@
       position: relative;
       z-index: 2;
 
-      font-size:
-        clamp(34px, 5vw, 52px);
+      font-size: clamp(34px, 5vw, 52px);
 
-      letter-spacing: -1.8px;
+      line-height: 1.05;
+
+      letter-spacing: -2px;
 
       margin-bottom: 18px;
     }
@@ -919,6 +1014,8 @@
       color: #c7d3db;
 
       font-size: 15px;
+
+      line-height: 1.75;
     }
 
     .wheel-features {
@@ -927,23 +1024,19 @@
 
       display: grid;
 
-      grid-template-columns:
-        repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
 
       gap: 11px;
 
-      margin:
-        30px 0;
+      margin: 30px 0;
     }
 
     .wheel-feature {
       padding: 15px;
 
-      border:
-        1px solid rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.09);
 
-      background:
-        rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.04);
 
       border-radius: 10px;
 
@@ -967,14 +1060,13 @@
 
 
     /* =========================================================
-       ABOUT / NICK
+       ABOUT
     ========================================================= */
 
     .about-grid {
       display: grid;
 
-      grid-template-columns:
-        0.8fr 1.2fr;
+      grid-template-columns: 0.8fr 1.2fr;
 
       gap: 55px;
 
@@ -983,6 +1075,10 @@
 
     .profile-photo {
       min-height: 470px;
+
+      position: relative;
+
+      overflow: hidden;
 
       border-radius: 22px;
 
@@ -1007,7 +1103,26 @@
       box-shadow: var(--shadow);
     }
 
+    .profile-photo::after {
+      content: "";
+
+      position: absolute;
+
+      width: 250px;
+      height: 250px;
+
+      right: -80px;
+      bottom: -80px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(228,201,142,0.15);
+    }
+
     .profile-placeholder {
+      position: relative;
+      z-index: 2;
+
       max-width: 260px;
     }
 
@@ -1016,7 +1131,7 @@
 
       color: white;
 
-      font-size: 21px;
+      font-size: 30px;
 
       margin-bottom: 8px;
     }
@@ -1034,12 +1149,11 @@
     .about-content h2 {
       color: var(--navy);
 
-      font-size:
-        clamp(34px, 5vw, 52px);
+      font-size: clamp(34px, 5vw, 52px);
 
       line-height: 1.08;
 
-      letter-spacing: -1.8px;
+      letter-spacing: -2px;
 
       margin-bottom: 18px;
     }
@@ -1048,6 +1162,8 @@
       color: var(--muted);
 
       font-size: 15px;
+
+      line-height: 1.75;
 
       margin-bottom: 20px;
     }
@@ -1064,7 +1180,7 @@
       padding: 14px 0;
 
       border-bottom:
-        1px solid var(--light-border);
+        1px solid var(--border);
     }
 
     .about-check {
@@ -1111,14 +1227,18 @@
 
     .nick-section {
       background: var(--navy);
+
       color: white;
+    }
+
+    .nick-section .section-label {
+      color: var(--gold-light);
     }
 
     .nick-grid {
       display: grid;
 
-      grid-template-columns:
-        1fr 1fr;
+      grid-template-columns: 1fr 1fr;
 
       gap: 25px;
     }
@@ -1133,10 +1253,21 @@
 
       background:
         rgba(255,255,255,0.035);
+
+      transition: 0.3s ease;
+    }
+
+    .nick-card:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        rgba(228,201,142,0.30);
     }
 
     .nick-card h3 {
       font-size: 25px;
+
+      line-height: 1.25;
 
       margin-bottom: 12px;
     }
@@ -1145,6 +1276,8 @@
       color: #aebbc6;
 
       font-size: 14px;
+
+      line-height: 1.75;
     }
 
     .nick-badge {
@@ -1174,7 +1307,7 @@
 
 
     /* =========================================================
-       TRUST
+       TRANSPARENCY
     ========================================================= */
 
     .trust-section {
@@ -1193,7 +1326,7 @@
       background: white;
 
       border:
-        1px solid var(--light-border);
+        1px solid var(--border);
 
       box-shadow: var(--shadow);
 
@@ -1205,6 +1338,8 @@
 
       font-size: 34px;
 
+      line-height: 1.15;
+
       letter-spacing: -1px;
 
       margin-bottom: 15px;
@@ -1214,13 +1349,14 @@
       color: var(--muted);
 
       font-size: 14px;
+
+      line-height: 1.75;
     }
 
     .trust-points {
       display: grid;
 
-      grid-template-columns:
-        repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
 
       gap: 20px;
 
@@ -1241,6 +1377,8 @@
       color: var(--muted);
 
       font-size: 11px;
+
+      line-height: 1.6;
     }
 
 
@@ -1256,29 +1394,49 @@
       background:
         linear-gradient(
           135deg,
-          #f3eee3,
+          #f1ecdf,
           #faf8f3
         );
 
       text-align: center;
     }
 
+    .contact::before {
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      right: -100px;
+      top: -120px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(200,169,107,0.20);
+    }
+
     .contact h2 {
+      position: relative;
+
       color: var(--navy);
 
-      font-size:
-        clamp(35px, 5vw, 54px);
+      font-size: clamp(35px, 5vw, 54px);
 
-      letter-spacing: -1.8px;
+      line-height: 1.08;
+
+      letter-spacing: -2px;
 
       margin-bottom: 15px;
     }
 
     .contact > .container > p {
+      position: relative;
+
       max-width: 680px;
 
-      margin:
-        0 auto 30px;
+      margin: 0 auto 30px;
 
       color: var(--muted);
 
@@ -1286,6 +1444,8 @@
     }
 
     .contact-buttons {
+      position: relative;
+
       display: flex;
 
       justify-content: center;
@@ -1300,6 +1460,8 @@
     }
 
     .contact-note {
+      position: relative;
+
       max-width: 650px;
 
       margin: 22px auto 0;
@@ -1329,8 +1491,7 @@
 
       display: grid;
 
-      grid-template-columns:
-        1.4fr 1fr 1fr;
+      grid-template-columns: 1.4fr 1fr 1fr;
 
       gap: 40px;
 
@@ -1350,7 +1511,7 @@
       margin-bottom: 9px;
     }
 
-    .footer-brand span {
+    .footer-brand strong span {
       color: var(--gold-light);
     }
 
@@ -1384,6 +1545,8 @@
       font-size: 12px;
 
       margin: 7px 0;
+
+      transition: 0.2s ease;
     }
 
     .footer-column a:hover {
@@ -1416,17 +1579,147 @@
 
 
     /* =========================================================
+       FLOATING WHEEL JACK BUTTON
+    ========================================================= */
+
+    .floating-wheel {
+      position: fixed;
+
+      right: 22px;
+      bottom: 22px;
+
+      z-index: 999;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 9px;
+
+      padding: 12px 16px;
+
+      border-radius: 50px;
+
+      background: var(--gold);
+
+      color: var(--navy);
+
+      text-decoration: none;
+
+      font-size: 12px;
+      font-weight: 850;
+
+      box-shadow:
+        0 12px 35px rgba(0,0,0,0.22);
+
+      animation: float 4s ease-in-out infinite;
+
+      transition: 0.25s ease;
+    }
+
+    .floating-wheel:hover {
+      background: var(--gold-light);
+
+      transform: translateY(-4px);
+    }
+
+    .floating-wheel-icon {
+      width: 27px;
+      height: 27px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: var(--navy);
+
+      color: var(--gold-light);
+
+      font-size: 12px;
+    }
+
+
+    /* =========================================================
        MOBILE
     ========================================================= */
 
-    @media (max-width: 950px) {
+    @media (max-width: 1050px) {
 
       nav {
         display: none;
       }
 
-      .hero {
-        min-height: 700px;
+      .menu-button {
+        display: block;
+      }
+
+      .mobile-menu {
+        position: fixed;
+
+        top: 72px;
+        left: 0;
+        right: 0;
+
+        display: flex;
+
+        flex-direction: column;
+
+        padding: 18px;
+
+        background: rgba(7,21,33,0.98);
+
+        backdrop-filter: blur(20px);
+
+        border-bottom:
+          1px solid rgba(255,255,255,0.08);
+
+        transform: translateY(-130%);
+
+        opacity: 0;
+
+        pointer-events: none;
+
+        transition: 0.3s ease;
+      }
+
+      .mobile-menu.open {
+        transform: translateY(0);
+
+        opacity: 1;
+
+        pointer-events: auto;
+      }
+
+      .mobile-menu a {
+        color: #dce5eb;
+
+        text-decoration: none;
+
+        padding: 14px 5px;
+
+        border-bottom:
+          1px solid rgba(255,255,255,0.06);
+
+        font-size: 14px;
+
+        font-weight: 700;
+      }
+
+      .mobile-menu .mobile-call {
+        margin-top: 12px;
+
+        text-align: center;
+
+        border: none;
+
+        border-radius: 9px;
+
+        background: var(--gold);
+
+        color: var(--navy);
       }
 
       .hero-info {
@@ -1434,12 +1727,11 @@
       }
 
       .property-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
       }
 
       .process {
-        grid-template-columns:
-          repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .wheel-features {
@@ -1453,35 +1745,47 @@
       .profile-photo {
         min-height: 360px;
       }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
     }
 
 
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
 
       section {
         padding: 75px 18px;
       }
 
       .nav {
-        padding:
-          15px 18px;
+        padding: 14px 18px;
       }
 
       .logo {
         font-size: 18px;
       }
 
+      .hero {
+        min-height: 720px;
+      }
+
+      .hero-image {
+        background-position: 58% center;
+
+        background-image:
+          linear-gradient(
+            90deg,
+            rgba(4,14,23,0.95),
+            rgba(4,14,23,0.72)
+          ),
+          url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85");
+      }
+
       .hero-content {
-        padding:
-          90px 20px;
+        padding: 90px 20px;
       }
 
       .hero h1 {
-        letter-spacing: -2px;
+        font-size: clamp(42px, 13vw, 62px);
+
+        letter-spacing: -2.8px;
       }
 
       .hero-description {
@@ -1497,21 +1801,23 @@
       }
 
       .trust-grid {
-        grid-template-columns:
-          1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+
+        gap: 18px 10px;
       }
 
+      .property-grid,
       .dark-grid,
       .nick-grid {
         grid-template-columns: 1fr;
       }
 
       .process {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
       }
 
       .wheel-box {
-        padding: 38px 24px;
+        padding: 40px 24px;
       }
 
       .wheel-features {
@@ -1549,8 +1855,68 @@
       .footer-bottom {
         flex-direction: column;
       }
+
+      .floating-wheel {
+        right: 14px;
+        bottom: 14px;
+
+        padding: 10px 13px;
+      }
     }
 
+
+    @media (max-width: 480px) {
+
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .wheel-box h2 {
+        font-size: 38px;
+      }
+
+      .about-content h2 {
+        font-size: 38px;
+      }
+
+      .section-heading h2 {
+        font-size: 35px;
+      }
+
+      .floating-wheel span:not(.floating-wheel-icon) {
+        display: none;
+      }
+    }
+
+
+    /* =========================================================
+       ACCESSIBILITY
+    ========================================================= */
+
+    :focus-visible {
+      outline: 3px solid var(--gold-light);
+
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
 
@@ -1591,6 +1957,40 @@
 
     </nav>
 
+    <button
+      class="menu-button"
+      id="menuButton"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
+
+  </div>
+
+
+  <div
+    class="mobile-menu"
+    id="mobileMenu"
+  >
+
+    <a href="#buyers">Buyers</a>
+
+    <a href="#sellers">Sellers</a>
+
+    <a href="#properties">Opportunities</a>
+
+    <a href="#wheel-jack">Wheel Jack</a>
+
+    <a href="#about">About</a>
+
+    <a
+      href="tel:+923218159181"
+      class="mobile-call"
+    >
+      📞 Call Sajjad
+    </a>
+
   </div>
 
 </header>
@@ -1616,12 +2016,10 @@
     </h1>
 
     <p class="hero-description">
-
       Sajjad Real Estate helps buyers, sellers, builders,
       developers and investors explore real-estate opportunities
       through organized information, AI assistance and direct
       human communication.
-
     </p>
 
     <div class="hero-buttons">
@@ -1671,51 +2069,23 @@
   <div class="trust-grid">
 
     <div class="trust-item">
-
-      <strong>
-        Buyer Focused
-      </strong>
-
-      <span>
-        Understand the actual requirement
-      </span>
-
+      <strong>Buyer Focused</strong>
+      <span>Understand the actual requirement</span>
     </div>
 
     <div class="trust-item">
-
-      <strong>
-        Seller Friendly
-      </strong>
-
-      <span>
-        Understand the property and objectives
-      </span>
-
+      <strong>Seller Friendly</strong>
+      <span>Understand the property and objectives</span>
     </div>
 
     <div class="trust-item">
-
-      <strong>
-        Information First
-      </strong>
-
-      <span>
-        Separate facts from assumptions
-      </span>
-
+      <strong>Information First</strong>
+      <span>Separate facts from assumptions</span>
     </div>
 
     <div class="trust-item">
-
-      <strong>
-        Human Oversight
-      </strong>
-
-      <span>
-        Important decisions remain human-led
-      </span>
-
+      <strong>Human Oversight</strong>
+      <span>Important decisions remain human-led</span>
     </div>
 
   </div>
@@ -1724,7 +2094,7 @@
 
 
 <!-- =========================================================
-     PROPERTY VISUALS
+     PROPERTY OPPORTUNITIES
 ========================================================= -->
 
 <section id="properties">
@@ -1880,25 +2250,15 @@
 
         <ul>
 
-          <li>
-            Location
-          </li>
+          <li>Location</li>
 
-          <li>
-            Property type
-          </li>
+          <li>Property type</li>
 
-          <li>
-            Land size
-          </li>
+          <li>Land size</li>
 
-          <li>
-            Intended use
-          </li>
+          <li>Intended use</li>
 
-          <li>
-            Budget and timeline
-          </li>
+          <li>Budget and timeline</li>
 
         </ul>
 
@@ -1922,25 +2282,15 @@
 
         <ul>
 
-          <li>
-            Property information
-          </li>
+          <li>Property information</li>
 
-          <li>
-            Location suitability
-          </li>
+          <li>Location suitability</li>
 
-          <li>
-            Potential use
-          </li>
+          <li>Potential use</li>
 
-          <li>
-            Known risks or unknowns
-          </li>
+          <li>Known risks or unknowns</li>
 
-          <li>
-            Human follow-up when required
-          </li>
+          <li>Human follow-up when required</li>
 
         </ul>
 
@@ -1983,7 +2333,7 @@
     <div class="property-grid">
 
 
-      <div class="property-card">
+      <article class="property-card">
 
         <div class="property-content">
 
@@ -2002,10 +2352,10 @@
 
         </div>
 
-      </div>
+      </article>
 
 
-      <div class="property-card">
+      <article class="property-card">
 
         <div class="property-content">
 
@@ -2024,10 +2374,10 @@
 
         </div>
 
-      </div>
+      </article>
 
 
-      <div class="property-card">
+      <article class="property-card">
 
         <div class="property-content">
 
@@ -2046,7 +2396,7 @@
 
         </div>
 
-      </div>
+      </article>
 
 
     </div>
@@ -2060,7 +2410,7 @@
      PROCESS
 ========================================================= -->
 
-<section class="trust-section">
+<section class="process-section">
 
   <div class="container">
 
@@ -2196,23 +2546,19 @@
       </h2>
 
       <p>
-
         Wheel Jack is the AI assistant connected to our
         real-estate operation. Visitors can talk with Wheel Jack
         to discuss property requirements, provide information,
         ask initial questions and begin the discovery process.
-
       </p>
 
       <br>
 
       <p>
-
         Wheel Jack is not presented as a replacement for
         professional human judgment. Important negotiations,
         verification, authorization and final decisions remain
         under appropriate human control.
-
       </p>
 
 
@@ -2253,14 +2599,14 @@
           rel="noopener noreferrer"
           class="button button-gold"
         >
-          Talk to Wheel Jack
+          🤖 Talk to Wheel Jack
         </a>
 
         <a
           href="tel:+923218159181"
           class="button button-outline"
         >
-          Talk to Sajjad
+          📞 Talk to Sajjad
         </a>
 
       </div>
@@ -2283,18 +2629,6 @@
     <div class="about-grid">
 
 
-      <!--
-        YOUR PHOTO WILL GO HERE LATER.
-
-        When you have your photo, name it:
-
-        sajjad.jpg
-
-        and upload it into the same GitHub folder as index.html.
-
-        Then we will replace this placeholder with your photo.
-      -->
-
       <div class="profile-photo">
 
         <div class="profile-placeholder">
@@ -2304,7 +2638,7 @@
           </strong>
 
           <span>
-            Your professional photo will appear here.
+            Professional profile photo can be added here later.
           </span>
 
         </div>
@@ -2325,19 +2659,15 @@
         </h2>
 
         <p>
-
           Sajjad Real Estate is built around a simple idea:
           property decisions become better when people have
           better information and a clear path to communicate.
-
         </p>
 
         <p>
-
           We combine human communication with modern AI tools
           to make the early stages of property discovery,
           qualification and communication more organized.
-
         </p>
 
 
@@ -2441,11 +2771,9 @@
       </h2>
 
       <p style="color:#aebbc6;">
-
         Nick represents the human-controlled side of the
         operation, helping turn conversations and property
         information into organized next steps.
-
       </p>
 
     </div>
@@ -2465,12 +2793,10 @@
         </h3>
 
         <p>
-
           While Wheel Jack can handle the first stage of a
           conversation, Nick provides a human-controlled path
           when a buyer or seller needs direct communication,
           clarification or follow-up.
-
         </p>
 
       </div>
@@ -2487,12 +2813,10 @@
         </h3>
 
         <p>
-
           Our goal isn't to hide behind AI. Wheel Jack helps
           organize and accelerate the early process while
           important decisions and communication remain under
           human direction.
-
         </p>
 
       </div>
@@ -2524,13 +2848,11 @@
       </h2>
 
       <p>
-
         We want buyers and sellers to feel comfortable asking
         questions. We don't believe trust should come from
         exaggerated promises. It should come from clear
         communication, honest uncertainty and responsible
         follow-up.
-
       </p>
 
 
@@ -2602,18 +2924,14 @@
     </h2>
 
     <p>
-
       Whether you're looking to buy, sell, build, develop or
       explore an opportunity, we're ready to hear what you're
       looking for.
-
     </p>
 
 
     <div class="contact-buttons">
 
-
-      <!-- CALL -->
 
       <a
         href="tel:+923218159181"
@@ -2623,33 +2941,21 @@
       </a>
 
 
-      <!-- WHATSAPP -->
-
       <a
         href="https://wa.me/923218159181?text=Hello%20Sajjad%20Real%20Estate%2C%20I%20would%20like%20to%20discuss%20a%20property%20opportunity."
         target="_blank"
         rel="noopener noreferrer"
-        class="button contact-button"
-        style="
-          background:#1f8f63;
-          color:white;
-        "
+        class="button button-green contact-button"
       >
         💬 WhatsApp Us
       </a>
 
 
-      <!-- WHEEL JACK -->
-
       <a
         href="https://elevenlabs.io/app/talk-to?agent_id=agent_3901m0qaqcr2frdtvt0rbftrwnpv&branch_id=agtbrch_7201m0qaqd72ef3veqa7ftjr6m80"
         target="_blank"
         rel="noopener noreferrer"
-        class="button contact-button"
-        style="
-          background:var(--navy);
-          color:white;
-        "
+        class="button button-dark contact-button"
       >
         🤖 Talk to Wheel Jack
       </a>
@@ -2686,11 +2992,9 @@
       </strong>
 
       <p>
-
         Property acquisition, opportunity discovery and
         human-led real-estate communication supported by
         modern AI tools.
-
       </p>
 
     </div>
@@ -2718,6 +3022,10 @@
         Wheel Jack
       </a>
 
+      <a href="#about">
+        About
+      </a>
+
     </div>
 
 
@@ -2739,8 +3047,8 @@
         WhatsApp
       </a>
 
-      <a href="#about">
-        About Us
+      <a href="#contact">
+        Contact Us
       </a>
 
     </div>
@@ -2765,14 +3073,154 @@
 
 
     <div>
-
       © 2026 Sajjad Real Estate
-
     </div>
 
   </div>
 
 </footer>
+
+
+<!-- =========================================================
+     FLOATING WHEEL JACK BUTTON
+========================================================= -->
+
+<a
+  href="https://elevenlabs.io/app/talk-to?agent_id=agent_3901m0qaqcr2frdtvt0rbftrwnpv&branch_id=agtbrch_7201m0qaqd72ef3veqa7ftjr6m80"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="floating-wheel"
+  aria-label="Talk to Wheel Jack"
+>
+
+  <span class="floating-wheel-icon">
+    🤖
+  </span>
+
+  <span>
+    Talk to Wheel Jack
+  </span>
+
+</a>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+  /* =========================================================
+     MOBILE MENU
+  ========================================================= */
+
+  const menuButton = document.getElementById("menuButton");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  menuButton.addEventListener("click", () => {
+
+    const isOpen =
+      mobileMenu.classList.toggle("open");
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      isOpen
+    );
+
+    document.body.classList.toggle(
+      "menu-open",
+      isOpen
+    );
+
+    menuButton.textContent =
+      isOpen ? "✕" : "☰";
+
+  });
+
+
+  /* =========================================================
+     CLOSE MOBILE MENU AFTER CLICK
+  ========================================================= */
+
+  mobileMenu
+    .querySelectorAll("a")
+    .forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        mobileMenu.classList.remove("open");
+
+        document.body.classList.remove("menu-open");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuButton.textContent = "☰";
+
+      });
+
+    });
+
+
+  /* =========================================================
+     ESCAPE KEY CLOSES MENU
+  ========================================================= */
+
+  document.addEventListener("keydown", event => {
+
+    if (
+      event.key === "Escape" &&
+      mobileMenu.classList.contains("open")
+    ) {
+
+      mobileMenu.classList.remove("open");
+
+      document.body.classList.remove("menu-open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuButton.textContent = "☰";
+
+    }
+
+  });
+
+
+  /* =========================================================
+     PREVENT STALE HASH JUMP ON LOAD
+  ========================================================= */
+
+  window.addEventListener("load", () => {
+
+    if (window.location.hash) {
+
+      setTimeout(() => {
+
+        const element =
+          document.querySelector(
+            window.location.hash
+          );
+
+        if (element) {
+
+          element.scrollIntoView({
+            behavior: "smooth"
+          });
+
+        }
+
+      }, 100);
+
+    }
+
+  });
+
+</script>
 
 
 </body>
